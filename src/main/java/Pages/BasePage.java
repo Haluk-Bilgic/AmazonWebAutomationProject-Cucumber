@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 
 public abstract class BasePage {
@@ -38,10 +39,16 @@ public abstract class BasePage {
         System.out.println("Result:" + value.getText());
     }
 
+    public void assertion(WebElement actual,String expected) {
+        wait.until(ExpectedConditions.visibilityOf(actual));
+        Assert.assertEquals(actual.getText(), expected);
+    }
+
     public void jsScrollToElement(String parameter, WebElement element) {
         JavascriptExecutor jselement = (JavascriptExecutor) driver;
         jselement.executeScript(parameter, element);
     }
+
 
     public static void waitFor(int seconds) {
         try {

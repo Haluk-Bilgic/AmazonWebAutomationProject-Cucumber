@@ -1,6 +1,8 @@
 package StepDefinition;
 
 import Helper.BrowserSetup;
+import Pages.HomePage;
+import Pages.ResultsPage;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -10,6 +12,9 @@ public class AddToCartSteps {
 
     public static WebDriver driver;
 
+    HomePage homePage;
+    ResultsPage resultsPage;
+
     @Given("^navigate to ”https://www\\.amazon\\.com/”$")
     public void navigate_to_https_www_amazon_com() {
         driver = BrowserSetup.startBrowser("chrome", "https://www.amazon.com/");
@@ -17,22 +22,26 @@ public class AddToCartSteps {
 
     @When("^Enter “socks” to search box$")
     public void enter_socks_to_search_box() {
-
+        homePage = new HomePage(driver);
+        homePage.typeSearchBox();
+        homePage.ClickSearchButton();
     }
 
     @When("^Open the second page of the results$")
     public void open_the_second_page_of_the_results() {
-
+        resultsPage = new ResultsPage(driver);
+        resultsPage.scrollDown();
+        resultsPage.openSecondPage();
     }
 
     @When("^Verify the second page is opened$")
     public void verify_the_second_page_is_opened() {
-
+        resultsPage.verifyPage();
     }
 
     @When("^Select the product on the second row and second column$")
     public void select_the_product_on_the_second_row_and_second_column() {
-
+        resultsPage.clickTheProduct();
     }
 
     @When("^Select first available size on the “Size” dropdown element$")

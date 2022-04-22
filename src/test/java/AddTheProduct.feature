@@ -11,4 +11,3 @@ Feature: Add items to Cart on Amazon
     And Click on the “Add to Cart” button on the newly opened right panel
     And Verify the “Added” text is visible
     Then Verify a check icon is is visible just near the “Added” text
-
