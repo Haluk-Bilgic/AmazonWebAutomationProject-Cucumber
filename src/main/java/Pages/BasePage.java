@@ -29,9 +29,9 @@ public abstract class BasePage {
         sendKeysElement.sendKeys(value);
     }
 
-    public void selectElement(WebElement dropdown, String element) {
+    public void selectElement(WebElement dropdown, int element) {
         Select slc = new Select(dropdown);
-        slc.selectByVisibleText(element);
+        slc.selectByIndex(element);
     }
 
     public void getText(WebElement value) {

@@ -2,6 +2,7 @@ package StepDefinition;
 
 import Helper.BrowserSetup;
 import Pages.HomePage;
+import Pages.ProductPage;
 import Pages.ResultsPage;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -14,6 +15,7 @@ public class AddToCartSteps {
 
     HomePage homePage;
     ResultsPage resultsPage;
+    ProductPage productPage;
 
     @Given("^navigate to ”https://www\\.amazon\\.com/”$")
     public void navigate_to_https_www_amazon_com() {
@@ -46,21 +48,22 @@ public class AddToCartSteps {
 
     @When("^Select first available size on the “Size” dropdown element$")
     public void select_first_available_size_on_the_Size_dropdown_element() {
-
+        productPage=new ProductPage(driver);
+        productPage.selectSize();
     }
 
     @When("^Click on the “Add to Cart” button on the newly opened right panel$")
     public void click_on_the_Add_to_Cart_button_on_the_newly_opened_right_panel() {
-
+        productPage.addToCart();
     }
 
     @When("^Verify the “Added” text is visible$")
     public void verify_the_Added_text_is_visible() {
-
+        productPage.verifyAddedText();
     }
 
     @Then("^Verify a check icon is is visible just near the “Added” text$")
     public void verify_a_check_icon_is_is_visible_just_near_the_Added_text() {
-
+        productPage.verifyDisplayedIcon();
     }
 }
