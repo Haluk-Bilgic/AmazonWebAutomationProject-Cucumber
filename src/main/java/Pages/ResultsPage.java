@@ -1,5 +1,6 @@
 package Pages;
 
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
@@ -32,7 +33,7 @@ public class ResultsPage extends BasePage {
 
 
     public void scrollDown() {
-        jsScrollToElement("arguments[0].scrollIntoView();", pagination);
+        jsScrollToElement("arguments[0].scrollIntoView();", pagination); //I scroll down the page
         waitFor(2);
     }
 

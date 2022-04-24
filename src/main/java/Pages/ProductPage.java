@@ -1,8 +1,8 @@
 package Pages;
 
+import Utilities.BrowserUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -38,11 +38,13 @@ public class ProductPage extends BasePage{
     }
     public void verifyDisplayedIcon(){
         if(icon.isDisplayed()){
+            BrowserUtils.getScreenshot("AddedAndIconImage",driver);
             System.out.println("The icon is visible and Test passed successfully");
         }
         else{
             System.out.println("The icon is not visible");
         }
+
     }
 
 

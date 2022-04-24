@@ -8,6 +8,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import java.time.Duration;
+// All page object classes extends the BasePage, thus inheriting all the base methods.
 
 public abstract class BasePage {
 
@@ -16,7 +18,7 @@ public abstract class BasePage {
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
-        wait = new WebDriverWait(driver, 10);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     public void clickFunction(WebElement clickElement) {
@@ -39,7 +41,7 @@ public abstract class BasePage {
         System.out.println("Result:" + value.getText());
     }
 
-    public void assertion(WebElement actual,String expected) {
+    public void assertion(WebElement actual, String expected) {
         wait.until(ExpectedConditions.visibilityOf(actual));
         Assert.assertEquals(actual.getText(), expected);
     }

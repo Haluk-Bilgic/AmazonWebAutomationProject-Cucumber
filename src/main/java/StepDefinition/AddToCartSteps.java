@@ -26,7 +26,7 @@ public class AddToCartSteps {
     public void enter_socks_to_search_box() {
         homePage = new HomePage(driver);
         homePage.typeSearchBox();
-        homePage.ClickSearchButton();
+        homePage.clickSearchButton();
     }
 
     @When("^Open the second page of the results$")
@@ -48,7 +48,7 @@ public class AddToCartSteps {
 
     @When("^Select first available size on the “Size” dropdown element$")
     public void select_first_available_size_on_the_Size_dropdown_element() {
-        productPage=new ProductPage(driver);
+        productPage = new ProductPage(driver);
         productPage.selectSize();
     }
 
@@ -65,5 +65,6 @@ public class AddToCartSteps {
     @Then("^Verify a check icon is is visible just near the “Added” text$")
     public void verify_a_check_icon_is_is_visible_just_near_the_Added_text() {
         productPage.verifyDisplayedIcon();
+
     }
 }
