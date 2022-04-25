@@ -1,5 +1,5 @@
 # AmazonWebAutomationProject-Cucumber
-This project is a case study that tests main functions of some pages on Amazon for Web UI Automation.
+This project is a case study that tests main functions of some pages by using Cucumber framework on Amazon for Web UI Automation.
 ## Language and Frameworks
 * Java
 * Selenium WebDriver
